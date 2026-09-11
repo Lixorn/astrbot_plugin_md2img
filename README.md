@@ -1,17 +1,37 @@
-# astrbot_plugin_md2img
+<p align="center">
+  <img src="./logo.png" width="128" alt="md2img logo">
+</p>
 
-一个面向聊天场景的轻量级 Markdown 图片渲染插件。使用 Pillow 直接排版，不依赖浏览器、Playwright 或 HTML 截图环境，适合将长回复、代码块、复杂表格以及 LLM 的图文结果稳定地排版成图片发送。
+<h1 align="center">astrbot_plugin_md2img</h1>
+
+<p align="center">
+  轻量级、无需浏览器的 AstrBot Markdown 图片渲染插件
+</p>
+
+<p align="center">
+  长回复 · 表格 · 代码块 · Emoji · LLM 图文混排
+</p>
+
+使用 Pillow 直接排版，不依赖浏览器、Playwright 或 HTML 截图环境。适合把 AstrBot 的长回复、复杂表格、代码以及 LLM 图文结果稳定地整理成易读图片发送。
+
+## 效果预览
+
+<p align="center">
+  <img src="./docs/example-weekly-report.webp" width="280" alt="md2img 渲染效果示例">
+</p>
+
+<p align="center"><sub>示例：Markdown、表格、代码块、Emoji 与图片组合渲染。</sub></p>
 
 ## 功能
 
-- Markdown 排版：标题、加粗、斜体、删除线、行内代码、代码块、列表、引用、分割线、链接、表格。
-- 中文排版：中文按字、英文按词换行，并做常见标点避头尾处理。
-- 表格优化：自动收缩字号；过宽表格可拆成独立横屏附图。
-- Agent 感知：可向 AstrBot Agent 的 system prompt 注入稳定能力声明，让 Agent 知道最终输出层支持 Markdown 图片渲染；不会额外注册 LLM Tool 或制造一次工具调用。
-- 图文混排：可把 LLM 最终 `Plain + Image` 消息链按原顺序嵌入 Markdown 排版，而不是让图片只能单独发送。
-- Emoji：文本真正包含 Emoji 时才按需加载 Noto Color Emoji；下载后缓存复用。
-- 外链图片：支持 `![alt](url)` 和独占一行的图片 URL；限制数量、体积和像素规模，并拒绝本机/内网目标以降低 SSRF 风险。
-- 纯 Pillow：无需浏览器运行时，部署体积小。
+- **Markdown 排版**：标题、加粗、斜体、删除线、行内代码、代码块、列表、引用、分割线、链接、表格。
+- **中文排版**：中文按字、英文按词换行，并做常见标点避头尾处理。
+- **表格优化**：自动收缩字号；过宽表格可拆成独立横屏附图。
+- **Agent 感知**：可向 AstrBot Agent 的 system prompt 注入稳定能力声明，让 Agent 知道最终输出层支持 Markdown 图片渲染；不会额外注册 LLM Tool 或制造一次工具调用。
+- **图文混排**：可把 LLM 最终 `Plain + Image` 消息链按原顺序嵌入 Markdown 排版，而不是让图片只能单独发送。
+- **Emoji**：文本真正包含 Emoji 时才按需加载 Noto Color Emoji；下载后缓存复用。
+- **外链图片**：支持 `![alt](url)` 和独占一行的图片 URL；限制数量、体积和像素规模，并拒绝本机/内网目标以降低 SSRF 风险。
+- **纯 Pillow**：无需浏览器运行时，部署体积小。
 
 ## 安装
 
