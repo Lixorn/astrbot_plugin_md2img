@@ -17,7 +17,7 @@
 ## 效果预览
 
 <p align="center">
-  <img src="./docs/example-weekly-report.webp" width="280" alt="md2img 渲染效果示例">
+  <img src="./docs/example-weekly-report.png" width="320" alt="md2img 渲染效果示例">
 </p>
 
 <p align="center"><sub>示例：Markdown、表格、代码块、Emoji 与图片组合渲染。</sub></p>
@@ -93,11 +93,11 @@
 | `landscape_width` | 1600 | 宽表格附图宽度 |
 | `table_landscape_ratio` | 1.6 | 宽表格拆图阈值 |
 
-## 字体与网络
+## 缓存与清理
 
-中文默认字体固定从 Noto CJK `Sans2.004` 获取，Emoji 默认字体固定从 Noto Emoji `v2.051` 获取。两者都只在需要时下载，并缓存在插件数据目录中，不会在 AstrBot 启动阶段发起网络请求。
+插件会在发送完成后清理本次渲染产生的临时 PNG，并在插件初始化时尝试清理旧的临时输出文件，因此不会无限堆积发送用图片。字体缓存会保存在 AstrBot 的插件数据目录中，作为长期复用资源保留，不会每次都重新下载。
 
-如果部署环境完全离线，可以关闭 `font_auto_download` / `emoji_auto_download`，并使用 `font_path` / `emoji_font_path` 指向本地字体。Emoji 字体不可用时会退回普通文本绘制。
+如果你部署环境完全离线，可以关闭 `font_auto_download` / `emoji_auto_download`，并使用 `font_path` / `emoji_font_path` 指向本地字体。Emoji 字体不可用时会退回普通文本绘制。
 
 ## 开源许可
 
