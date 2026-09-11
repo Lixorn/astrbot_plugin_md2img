@@ -1,0 +1,110 @@
+{
+  "image_width": {
+    "description": "生成图片的宽度（像素），竖屏阅读建议 800~960",
+    "type": "int",
+    "hint": "图片越宽字号相对越小，手机端建议保持默认",
+    "default": 880
+  },
+  "font_size": {
+    "description": "正文字号（像素），手机端清晰可读建议 28~34",
+    "type": "int",
+    "default": 30
+  },
+  "accent_color": {
+    "description": "主题强调色（用于标题装饰、链接、列表符号等）",
+    "type": "string",
+    "default": "#2B5CE6"
+  },
+  "max_chars": {
+    "description": "单张图片允许的最大字符数，超出部分自动截断",
+    "type": "int",
+    "default": 6000
+  },
+  "font_path": {
+    "description": "自定义 CJK 字体文件绝对路径；留空时优先使用缓存字体，首次渲染可自动下载 Noto Sans SC",
+    "type": "string",
+    "default": ""
+  },
+  "font_auto_download": {
+    "description": "缺少中文字体时，首次渲染自动下载 Noto Sans SC 到插件数据目录",
+    "type": "bool",
+    "default": true
+  },
+  "emoji_enabled": {
+    "description": "启用彩色 emoji 渲染；仅在文本实际包含 emoji 时加载字体",
+    "type": "bool",
+    "default": true
+  },
+  "emoji_font_path": {
+    "description": "自定义 emoji 字体文件绝对路径；留空时按需使用缓存/下载 Noto Color Emoji",
+    "type": "string",
+    "default": ""
+  },
+  "emoji_auto_download": {
+    "description": "文本包含 emoji 且本机无缓存时，自动下载 Noto Color Emoji 到插件数据目录",
+    "type": "bool",
+    "default": true
+  },
+  "download_images": {
+    "description": "自动下载 Markdown 中的公网图片链接并嵌入渲染结果；内网/本机地址会被拒绝",
+    "type": "bool",
+    "default": true
+  },
+  "max_remote_images": {
+    "description": "单条消息最多下载的外链图片数量",
+    "type": "int",
+    "default": 8
+  },
+  "remote_image_max_mb": {
+    "description": "单张外链图片最大下载体积（MB）",
+    "type": "int",
+    "default": 8
+  },
+  "remote_image_total_mb": {
+    "description": "单条消息所有外链图片最大总下载体积（MB）",
+    "type": "int",
+    "default": 30
+  },
+  "landscape_width": {
+    "description": "横屏附图的宽度（像素），用于过宽表格单独成图",
+    "type": "int",
+    "default": 1600
+  },
+  "table_landscape_ratio": {
+    "description": "表格自然宽度超过正文区该倍数时，单独转为横屏附图",
+    "type": "float",
+    "default": 1.6
+  },
+  "agent_awareness": {
+    "description": "让 Agent 知道最终输出支持 Markdown 图片渲染，从而可以主动使用标题、表格、代码块等结构；不会注册额外 Tool 调用",
+    "type": "bool",
+    "default": true
+  },
+  "image_handling": {
+    "description": "LLM 最终结果包含图片时的处理：auto=仅在本来触发转图时嵌入；embed=图文混排强制整合；separate=保持 AstrBot 原始图文分开发送",
+    "type": "string",
+    "options": ["auto", "embed", "separate"],
+    "labels": ["自动（推荐）", "始终嵌入排版", "保持图片单独发送"],
+    "default": "auto"
+  },
+  "max_embedded_result_images": {
+    "description": "最终 LLM 消息链允许嵌入到 Markdown 排版中的最大图片数量，超过时保持原消息链",
+    "type": "int",
+    "default": 8
+  },
+  "auto_render_llm": {
+    "description": "开启后只处理 LLM Result：长文本自动转图片，短纯文本保持原样；默认开启",
+    "type": "bool",
+    "default": true
+  },
+  "table_always_image": {
+    "description": "只对 LLM Result 生效：包含 Markdown 表格时自动转为图片",
+    "type": "bool",
+    "default": true
+  },
+  "auto_render_min_len": {
+    "description": "触发 LLM 自动转图的最小字符数（仅在开启自动转图后生效）",
+    "type": "int",
+    "default": 220
+  }
+}
